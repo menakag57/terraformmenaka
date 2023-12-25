@@ -15,7 +15,7 @@ resource "aws_instance" "web1" {
     host = self.public_ip # Understand what is "self"
     user = "ec2-user"
     password = ""
-    private_key = file("private-key/kops-helm.pem")
+    private_key = file("kops-helm.pem")
   }  
   provisioner "file" {
     source      = "apps/index.html"
@@ -46,7 +46,7 @@ resource "aws_instance" "web2" {
     host = self.public_ip # Understand what is "self"
     user = "ec2-user"
     password = ""
-    private_key = file("private-key/kops-helm.pem")
+    private_key = file("kops-helm.pem")
   }
   provisioner "file" {
     source      = "apps/index.html"
