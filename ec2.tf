@@ -3,8 +3,8 @@ resource "aws_instance" "web1" {
   ami           = var.ami_id
   instance_type = var.instance_type
   associate_public_ip_address = true
-  subnet_id = aws_subnet.pubsub1.id
-  vpc_security_group_ids =[aws_security_group.pub-seg.id]
+  subnet_id = aws_subnet.pvtsub1.id
+  vpc_security_group_ids =[aws_security_group.pvt-seg.id]
   key_name = "kops-helm"
   user_data = file("web-apps.sh")
   tags = {
@@ -34,8 +34,8 @@ resource "aws_instance" "web2" {
   ami           = var.ami_id
   instance_type = var.instance_type
   associate_public_ip_address = true
-  subnet_id = aws_subnet.pubsub2.id
-  vpc_security_group_ids =[aws_security_group.pub-seg.id]
+  subnet_id = aws_subnet.pvtsub2.id
+  vpc_security_group_ids =[aws_security_group.pvt-seg.id]
   key_name = "kops-helm"
   user_data = file("web-apps.sh")
   tags = {
